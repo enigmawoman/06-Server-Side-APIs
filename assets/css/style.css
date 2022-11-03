@@ -27,4 +27,31 @@
     margin: 10px;
     padding: 10px;
     background-color: rgb(123, 155, 183);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #icon-now{
+    max-width: 100px;
+  }
+
+  #five-day-fore {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .forecast-day {
+    background-color: aqua;
+    padding: 20px;
+    margin: 10px;
+    align-items: center;
+  }
+
+  @media(max-width: 768px) {
+    #five-day-fore {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
   }
