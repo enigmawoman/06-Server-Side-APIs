@@ -1,0 +1,30 @@
+:root {
+    --dark: purple;
+    --light: white;
+    --mid: pink;
+    --mid-2: lightblue;
+    --darkgrey: rgb(67, 67, 67)
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html{scroll-behavior: smooth;}
+  
+  body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: black;
+  background: var(--light);
+  }
+
+
+  #current-weather {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(123, 155, 183);
+  }
