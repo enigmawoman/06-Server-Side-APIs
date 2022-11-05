@@ -1,5 +1,5 @@
 :root {
-    --dark: purple;
+    --dark: rgb(114, 158, 38);
     --light: white;
     --mid: pink;
     --mid-2: lightblue;
@@ -22,15 +22,63 @@
   background: var(--light);
   }
 
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    font-size: 40px;
+  }
+
+  #header-top {
+    background-color: var(--dark);
+  }
+  main {
+    display: flex;
+    justify-content: space-around;
+  }
+
+
+  #style-bg{
+    box-sizing: border-box;
+    background-color: grey;
+    background-image: url(../images/long-range-forecast-for-late-october-2021-374561-1_1280.jpeg);
+    background-size: cover;
+    background-position: center center;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+}
+
+#recent-title {
+  font-size: 25px;
+  text-align: center;
+}
+
+.added-locations {
+  background-color: rgb(164, 109, 13);
+  margin: 2px;
+  border-radius: 2px;
+  color: black;
+  padding: 5px;
+}
 
   #current-weather {
     margin: 10px;
     padding: 10px;
-    background-color: rgb(123, 155, 183);
+    background-color: var(--dark);
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
+  #recent-weather {
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   #icon-now{
     max-width: 100px;
   }
@@ -42,11 +90,22 @@
   }
 
   .forecast-day {
-    background-color: aqua;
+    background-color: var(--dark);
     padding: 20px;
     margin: 10px;
     align-items: center;
   }
+
+  #five-day-title {
+    text-align: center;
+    color: var(--light);
+  }
+
+#current-title {
+  text-align: center;
+
+  color: var(--light);
+}
 
   @media(max-width: 768px) {
     #five-day-fore {
@@ -54,4 +113,14 @@
         justify-content: space-between;
         flex-direction: column;
       }
+    #column-aside {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+    }
   }

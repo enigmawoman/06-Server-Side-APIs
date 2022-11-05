@@ -4,19 +4,31 @@ const maxFutureDays = 6;
 
 const searchLocation = document.getElementById('search-bar')
 const searchBtn = document.getElementById('search-btn');
+const fiveDay = document.getElementById('five-day-title');
+const currentTitle = document.getElementById('current-title');
+
 
 let searchHistory = [];
+
+init();
+
+function init() {
+    fiveDay.style.display = 'none';
+    currentTitle.style.display = 'none';
+
+};
 
 function getLocation () {
     var city = searchLocation.value;
 if (city == ''){
-    window.alert("must input");
+    window.alert("Please enter a location.");
     return;
 } else if (!searchHistory.includes(city)) {
     searchHistory.push(city);
     localStorage.setItem("search-history", JSON.stringify(searchHistory));
     renderSearchedLocations();
 }
+    searchLocation.value = '';
     getCurrentWeather(city);
 }
 
@@ -36,10 +48,13 @@ fetch(queryURL)
         document.getElementById("city-now").textContent = data[0].name + ", " + data[0].country;
     })
 
+    
+
 };
 
 
 function getFutureWeather (data) {
+
     console.log(data);
 
     var lat = data[0].lat;
@@ -63,6 +78,8 @@ function getFutureWeather (data) {
 
 function renderCurrentWeather (weatherData) {
 
+    currentTitle.style.display = 'block';
+
     const currentWeather = weatherData.current;
     const icon = weatherData.current.weather[0].icon
     const date = new Date(currentWeather.dt * 1000).toLocaleDateString('en-GB', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -75,9 +92,10 @@ function renderCurrentWeather (weatherData) {
 };
 
 function renderFutureWeather (futureData) {
+
+    fiveDay.style.display = 'block';
     
     const futureWeather = futureData.daily;
-    //const icon = futureData.daily.weather[0].icon;
     const forecastList = document.getElementById("five-day-fore");
     forecastList.innerHTML = '';
 
@@ -130,17 +148,20 @@ function getSearchHistory () {
 
 
 function renderSearchedLocations() {
+
+    const reversed = searchHistory.reverse();
     
     const locationList = document.getElementById("recent-locations");
 
     locationList.innerHTML = '';
 
-    for (i=0; i < searchHistory.length; i++) {
+    for (i=0; i < reversed.length; i++) {
 
        const recentLocation = document.createElement('div');
-       recentLocation.textContent = searchHistory[i];
+       recentLocation.classList.add('added-locations');
+       recentLocation.textContent = reversed[i];
        recentLocation.addEventListener('click', onClickLocation);
-      // console.log(recentLocation);
+      
 
       
         locationList.appendChild(recentLocation);
@@ -153,18 +174,7 @@ function onClickLocation(event) {
     const cityName = event.target.textContent
     getCurrentWeather(cityName);
     
-    // searchHistory.filter(data => {
-    //     if (data.name === cityName) {
-    //         displayWeather();
-    //     }
-    // });
-}
-
-//  function displayWeather (data) {
-//    // document.getElementById("city-now").textContent = data[0].name + ", " + data[0].country;
-
-//     getFutureWeather(data);
-//  }
+  }
 
 getSearchHistory();
 searchBtn.addEventListener('click', getLocation);
