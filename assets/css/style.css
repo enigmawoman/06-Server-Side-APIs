@@ -1,19 +1,16 @@
+/* general colours for the site */
 :root {
     --dark: rgb(114, 158, 38);
     --light: white;
-    --mid: pink;
-    --mid-2: lightblue;
-    --darkgrey: rgb(67, 67, 67)
-  }
   
+  }
+  /* overall universal styling for the page */
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-  
-  html{scroll-behavior: smooth;}
-  
+  /* styling for the body element of the page */
   body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 16px;
@@ -25,19 +22,21 @@
   h1 {
     text-align: center;
   }
+  /* defining the font size of H2 */
   h2 {
     font-size: 40px;
   }
-
+/*  setting the background for the header */
   #header-top {
     background-color: var(--dark);
   }
+  /* making sure the main element is using flex box */
   main {
     display: flex;
     justify-content: space-around;
   }
 
-
+/* styling for the background image on the page */
   #style-bg{
     box-sizing: border-box;
     background-color: grey;
@@ -48,11 +47,13 @@
     background-repeat: no-repeat;
 }
 
+/* setting the font size for the recent locations title */
 #recent-title {
   font-size: 25px;
   text-align: center;
 }
 
+/* styling for each of the dynamically created recent locations */
 .added-locations {
   background-color: rgb(164, 109, 13);
   margin: 2px;
@@ -61,6 +62,7 @@
   padding: 5px;
 }
 
+/* making the weather display as flex box column for the current weather section */
   #current-weather {
     margin: 10px;
     padding: 10px;
@@ -78,17 +80,17 @@
     flex-direction: column;
     align-items: center;
   }
-
+/* setting the weather icon size */
   #icon-now{
     max-width: 100px;
   }
-
+/* setting the dynamically created divs for the 5 day forecast to display flex row */
   #five-day-fore {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
   }
-
+/* styling for the dynamically created divs for the 5 day forecast */
   .forecast-day {
     background-color: var(--dark);
     padding: 20px;
@@ -107,6 +109,7 @@
   color: var(--light);
 }
 
+/* changing the styleing to fit smaller screens  */
   @media(max-width: 768px) {
     #five-day-fore {
         display: flex;
